@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Ensure you have react-router-dom installed for routing
+import { FavoritesAndViewings, FinancialTools, PastSearchesAndAlerts, TrackOffers } from '../../components';
 
 const BuyerDashboard = () => {
-  const [activeComponent, setActiveComponent] = useState('Browse');
+  const [activeComponent, setActiveComponent] = useState('FavoritesAndViewings');
 
   // Define your components here
   const renderComponent = () => {
     switch (activeComponent) {
       case 'Browse':
         return <BrowseProperties />;
-      case 'Favorites':
-        return <Favorites />;
-      case 'Viewings':
-        return <ScheduleViewings />;
-      case 'SearchHistory':
-        return <SearchHistory />;
+      case 'FavoritesAndViewings':
+        return <FavoritesAndViewings />;
+      case 'PastSearchesAndAlerts':
+        return <PastSearchesAndAlerts />;
       case 'FinancialTools':
         return <FinancialTools />;
-      case 'Offers':
-        return <Offers />;
+      case 'TrackOffers':
+        return <TrackOffers />;
       default:
         return <BrowseProperties />;
     }
@@ -46,28 +45,18 @@ const BuyerDashboard = () => {
             <li>
               <Link
                 to="#"
-                onClick={() => setActiveComponent('Favorites')}
-                className={`block py-2 px-4 rounded hover:bg-green-100 ${activeComponent === 'Favorites' ? 'bg-green-200' : ''
+                onClick={() => setActiveComponent('FavoritesAndViewings')}
+                className={`block py-2 px-4 rounded hover:bg-green-100 ${activeComponent === 'FavoritesAndViewings' ? 'bg-green-200' : ''
                   }`}
               >
-                Favorites
+                FavoritesAndViewings
               </Link>
             </li>
             <li>
               <Link
                 to="#"
-                onClick={() => setActiveComponent('Viewings')}
-                className={`block py-2 px-4 rounded hover:bg-green-100 ${activeComponent === 'Viewings' ? 'bg-green-200' : ''
-                  }`}
-              >
-                Schedule Viewings
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="#"
-                onClick={() => setActiveComponent('SearchHistory')}
-                className={`block py-2 px-4 rounded hover:bg-green-100 ${activeComponent === 'SearchHistory' ? 'bg-green-200' : ''
+                onClick={() => setActiveComponent('PastSearchesAndAlerts')}
+                className={`block py-2 px-4 rounded hover:bg-green-100 ${activeComponent === 'PastSearchesAndAlerts' ? 'bg-green-200' : ''
                   }`}
               >
                 Search History
@@ -86,11 +75,11 @@ const BuyerDashboard = () => {
             <li>
               <Link
                 to="#"
-                onClick={() => setActiveComponent('Offers')}
-                className={`block py-2 px-4 rounded hover:bg-green-100 ${activeComponent === 'Offers' ? 'bg-green-200' : ''
+                onClick={() => setActiveComponent('TrackOffers')}
+                className={`block py-2 px-4 rounded hover:bg-green-100 ${activeComponent === 'TrackOffers' ? 'bg-green-200' : ''
                   }`}
               >
-                Track Offers
+                Track TrackOffers
               </Link>
             </li>
           </ul>
@@ -107,47 +96,5 @@ const BuyerDashboard = () => {
   );
 };
 
-// Example component definitions (you can replace these with your actual components)
-const BrowseProperties = () => (
-  <div>
-    <h3 className="text-lg font-bold">Browse Properties</h3>
-    <p>Here you can browse and filter property listings.</p>
-  </div>
-);
-
-const Favorites = () => (
-  <div>
-    <h3 className="text-lg font-bold">Favorites</h3>
-    <p>Your saved favorite properties will appear here.</p>
-  </div>
-);
-
-const ScheduleViewings = () => (
-  <div>
-    <h3 className="text-lg font-bold">Schedule Viewings</h3>
-    <p>Manage your scheduled viewings here.</p>
-  </div>
-);
-
-const SearchHistory = () => (
-  <div>
-    <h3 className="text-lg font-bold">Search History</h3>
-    <p>Your past searches will be listed here.</p>
-  </div>
-);
-
-const FinancialTools = () => (
-  <div>
-    <h3 className="text-lg font-bold">Financial Tools</h3>
-    <p>Access mortgage and affordability calculators.</p>
-  </div>
-);
-
-const Offers = () => (
-  <div>
-    <h3 className="text-lg font-bold">Track Offers</h3>
-    <p>Keep track of your offers and negotiations.</p>
-  </div>
-);
 
 export default BuyerDashboard;

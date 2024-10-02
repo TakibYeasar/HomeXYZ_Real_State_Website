@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Ensure you have react-router-dom installed for routing
+import { AgentAnalyticsDashboard, InquiriesAndAppointments, ManageListings, PersonalProfile } from '../../components';
 
 const AgentDashboard = () => {
   const [activeComponent, setActiveComponent] = useState('ManageListings');
@@ -9,14 +10,12 @@ const AgentDashboard = () => {
     switch (activeComponent) {
       case 'ManageListings':
         return <ManageListings />;
-      case 'ClientInquiries':
-        return <ClientInquiries />;
-      case 'ScheduleViewings':
-        return <ScheduleViewings />;
+      case 'InquiriesAndAppointments':
+        return <InquiriesAndAppointments />;
       case 'PersonalProfile':
         return <PersonalProfile />;
-      case 'Analytics':
-        return <Analytics />;
+      case 'AgentAnalyticsDashboard':
+        return <AgentAnalyticsDashboard />;
       default:
         return <ManageListings />;
     }
@@ -44,21 +43,11 @@ const AgentDashboard = () => {
             <li>
               <Link
                 to="#"
-                onClick={() => setActiveComponent('ClientInquiries')}
-                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'ClientInquiries' ? 'bg-blue-200' : ''
+                onClick={() => setActiveComponent('InquiriesAndAppointments')}
+                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'InquiriesAndAppointments' ? 'bg-blue-200' : ''
                   }`}
               >
                 Client Inquiries
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="#"
-                onClick={() => setActiveComponent('ScheduleViewings')}
-                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'ScheduleViewings' ? 'bg-blue-200' : ''
-                  }`}
-              >
-                Schedule Viewings
               </Link>
             </li>
             <li>
@@ -74,11 +63,11 @@ const AgentDashboard = () => {
             <li>
               <Link
                 to="#"
-                onClick={() => setActiveComponent('Analytics')}
-                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'Analytics' ? 'bg-blue-200' : ''
+                onClick={() => setActiveComponent('AgentAnalyticsDashboard')}
+                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'AgentAnalyticsDashboard' ? 'bg-blue-200' : ''
                   }`}
               >
-                Analytics Dashboard
+                AgentAnalyticsDashboard Dashboard
               </Link>
             </li>
           </ul>
@@ -95,45 +84,5 @@ const AgentDashboard = () => {
   );
 };
 
-// Example component definitions (you can replace these with your actual components)
-const ManageListings = () => (
-  <div>
-    <h3 className="text-lg font-bold">Manage Client Listings</h3>
-    <p>View and manage all your client property listings here.</p>
-    {/* Include functionality for managing listings */}
-  </div>
-);
-
-const ClientInquiries = () => (
-  <div>
-    <h3 className="text-lg font-bold">Client Inquiries</h3>
-    <p>Access buyer and seller inquiries and messages.</p>
-    {/* Display inquiries and messages here */}
-  </div>
-);
-
-const ScheduleViewings = () => (
-  <div>
-    <h3 className="text-lg font-bold">Schedule Viewings</h3>
-    <p>Manage your scheduled viewings and appointments.</p>
-    {/* Include scheduling functionality */}
-  </div>
-);
-
-const PersonalProfile = () => (
-  <div>
-    <h3 className="text-lg font-bold">Personal Profile</h3>
-    <p>Showcase your experience, properties sold, and client reviews.</p>
-    {/* Include profile management features */}
-  </div>
-);
-
-const Analytics = () => (
-  <div>
-    <h3 className="text-lg font-bold">Analytics Dashboard</h3>
-    <p>Monitor leads, client engagement, and property performance.</p>
-    {/* Include analytics data visualizations */}
-  </div>
-);
 
 export default AgentDashboard;

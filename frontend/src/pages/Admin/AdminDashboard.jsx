@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ManageInquiries, ManageProperties, ManageUsers, SiteAnalytics } from '../../components';
 
 const AdminDashboard = () => {
   // State to manage which component/content to show
@@ -10,13 +11,13 @@ const AdminDashboard = () => {
       case 'Dashboard':
         return <DashboardContent />;
       case 'Users':
-        return <UsersContent />;
+        return <ManageUsers />;
       case 'Properties':
-        return <PropertiesContent />;
+        return <ManageProperties />;
       case 'Analytics':
-        return <AnalyticsContent />;
+        return <ManageInquiries />;
       case 'Settings':
-        return <SettingsContent />;
+        return <SiteAnalytics />;
       default:
         return <DashboardContent />;
     }
@@ -93,46 +94,6 @@ const DashboardContent = () => {
           <p className="mt-2 text-primary-color">10</p>
         </div>
       </div>
-    </div>
-  );
-};
-
-// Example component for Users content
-const UsersContent = () => {
-  return (
-    <div>
-      <h1 className="text-3xl font-bold mb-6">User Management</h1>
-      <p>List of users goes here...</p>
-    </div>
-  );
-};
-
-// Example component for Properties content
-const PropertiesContent = () => {
-  return (
-    <div>
-      <h1 className="text-3xl font-bold mb-6">Property Listings</h1>
-      <p>List of properties goes here...</p>
-    </div>
-  );
-};
-
-// Example component for Analytics content
-const AnalyticsContent = () => {
-  return (
-    <div>
-      <h1 className="text-3xl font-bold mb-6">Site Analytics</h1>
-      <p>Analytics data goes here...</p>
-    </div>
-  );
-};
-
-// Example component for Settings content
-const SettingsContent = () => {
-  return (
-    <div>
-      <h1 className="text-3xl font-bold mb-6">System Settings</h1>
-      <p>Settings options go here...</p>
     </div>
   );
 };

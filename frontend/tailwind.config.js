@@ -31,5 +31,9 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+    require('tailwindcss'),
+    require('autoprefixer'),
+  ],
 }

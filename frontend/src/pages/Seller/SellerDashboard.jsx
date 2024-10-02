@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Ensure you have react-router-dom installed for routing
+import { AnalyticsDashboard, FeatureListings, InquiriesOffers, PropertyListings } from '../../components';
 
 const SellerDashboard = () => {
-  const [activeComponent, setActiveComponent] = useState('ManageListings');
+  const [activeComponent, setActiveComponent] = useState('PropertyListings');
 
   // Define your components here
   const renderComponent = () => {
     switch (activeComponent) {
-      case 'ManageListings':
-        return <ManageListings />;
-      case 'ViewInquiries':
-        return <ViewInquiries />;
-      case 'ManageOffers':
-        return <ManageOffers />;
-      case 'Analytics':
-        return <Analytics />;
-      case 'FeaturedListings':
-        return <FeaturedListings />;
+      case 'PropertyListings':
+        return <PropertyListings />;
+      case 'InquiriesOffers':
+        return <InquiriesOffers />;
+      case 'AnalyticsDashboard':
+        return <AnalyticsDashboard />;
+      case 'FeatureListings':
+        return <FeatureListings />;
       default:
-        return <ManageListings />;
+        return <PropertyListings />;
     }
   };
 
@@ -34,8 +33,8 @@ const SellerDashboard = () => {
             <li>
               <Link
                 to="#"
-                onClick={() => setActiveComponent('ManageListings')}
-                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'ManageListings' ? 'bg-blue-200' : ''
+                onClick={() => setActiveComponent('PropertyListings')}
+                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'PropertyListings' ? 'bg-blue-200' : ''
                   }`}
               >
                 Manage Listings
@@ -44,8 +43,8 @@ const SellerDashboard = () => {
             <li>
               <Link
                 to="#"
-                onClick={() => setActiveComponent('ViewInquiries')}
-                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'ViewInquiries' ? 'bg-blue-200' : ''
+                onClick={() => setActiveComponent('InquiriesOffers')}
+                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'InquiriesOffers' ? 'bg-blue-200' : ''
                   }`}
               >
                 View Inquiries
@@ -54,28 +53,18 @@ const SellerDashboard = () => {
             <li>
               <Link
                 to="#"
-                onClick={() => setActiveComponent('ManageOffers')}
-                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'ManageOffers' ? 'bg-blue-200' : ''
+                onClick={() => setActiveComponent('AnalyticsDashboard')}
+                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'AnalyticsDashboard' ? 'bg-blue-200' : ''
                   }`}
               >
-                Manage Offers
+                AnalyticsDashboard Dashboard
               </Link>
             </li>
             <li>
               <Link
                 to="#"
-                onClick={() => setActiveComponent('Analytics')}
-                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'Analytics' ? 'bg-blue-200' : ''
-                  }`}
-              >
-                Analytics Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="#"
-                onClick={() => setActiveComponent('FeaturedListings')}
-                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'FeaturedListings' ? 'bg-blue-200' : ''
+                onClick={() => setActiveComponent('FeatureListings')}
+                className={`block py-2 px-4 rounded hover:bg-blue-100 ${activeComponent === 'FeatureListings' ? 'bg-blue-200' : ''
                   }`}
               >
                 Featured Listings
@@ -94,46 +83,5 @@ const SellerDashboard = () => {
     </div>
   );
 };
-
-// Example component definitions (you can replace these with your actual components)
-const ManageListings = () => (
-  <div>
-    <h3 className="text-lg font-bold">Manage Listings</h3>
-    <p>Submit and manage your property listings here.</p>
-    {/* Include form for submitting/updating listings */}
-  </div>
-);
-
-const ViewInquiries = () => (
-  <div>
-    <h3 className="text-lg font-bold">View Inquiries</h3>
-    <p>See all inquiries about your properties here.</p>
-    {/* Display inquiries list */}
-  </div>
-);
-
-const ManageOffers = () => (
-  <div>
-    <h3 className="text-lg font-bold">Manage Offers</h3>
-    <p>Track and manage offers made on your properties.</p>
-    {/* Display offers list and management options */}
-  </div>
-);
-
-const Analytics = () => (
-  <div>
-    <h3 className="text-lg font-bold">Analytics Dashboard</h3>
-    <p>Monitor views, inquiries, and interest levels in your properties.</p>
-    {/* Include analytics data visualizations */}
-  </div>
-);
-
-const FeaturedListings = () => (
-  <div>
-    <h3 className="text-lg font-bold">Featured Listings</h3>
-    <p>Manage your featured or highlighted listings for better visibility.</p>
-    {/* Provide options to feature listings */}
-  </div>
-);
 
 export default SellerDashboard;
